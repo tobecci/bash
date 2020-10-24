@@ -1,0 +1,7 @@
+#!/bin/bash
+interface=$(ifconfig | grep -oP "wl(.*)(?=:)")
+password="bensphinx"
+
+clear
+echo $password | sudo -S airmon-ng start $interface
+elear

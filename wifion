@@ -1,0 +1,13 @@
+#!/bin/bash
+interface=$(ifconfig | grep -oP "wl(.*)(?=:)")
+new_interface="wlp3s0"
+password="bensphinx"
+
+clear
+echo $password | sudo -S ifconfig $interface down
+echo $password | sudo -S ip link set $interface name $new_interface
+interface=$new_interface
+echo $passwword | sudo -S iwconfig $interface mode managed
+echo $passwword | sudo -S ifconfig $interface up
+echo $passwword | sudo -S service network-manager restart
+clear

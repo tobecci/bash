@@ -1,0 +1,6 @@
+#!/bin/bash
+interface=$(ifconfig | grep -oP "wl(.*)(?=:)")
+password="bensphinx"
+echo $password | sudo -S wifimon
+echo $password | sudo -S wifijammer -i $interface
+
